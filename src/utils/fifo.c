@@ -1,6 +1,6 @@
 #include "fifo.h"
 
-// ³õÊ¼»¯
+// åˆå§‹åŒ–
 void fifo_init(fifo_t *fifo, uint8_t *buffer, uint16_t size)
 {
     fifo->p_buf = buffer;
@@ -10,45 +10,45 @@ void fifo_init(fifo_t *fifo, uint8_t *buffer, uint16_t size)
     fifo->is_full = false;
 }
 
-// Ğ´ÈëÊı¾İ (Ò²¾ÍÊÇÄã¸ø³öµÄ app_recv_data_fifo_enter µÄÍ¨ÓÃ°æ)
+// å†™å…¥æ•°æ® (ä¹Ÿå¯ä»¥ç›´æ¥ç”¨ app_recv_data_fifo_enter é€šç”¨ç‰ˆ)
 uint16_t fifo_write(fifo_t *fifo, const uint8_t *p_data, uint16_t len)
 {
     uint16_t i;
     for(i = 0; i < len; i++)
     {
-        // Ğ´ÈëÊı¾İµ½ head Î»ÖÃ
+        // å†™å…¥æ•°æ®åˆ° head ä½ç½®
         fifo->p_buf[fifo->head] = *p_data++;
         
-        // head Ö¸Õë×ÔÔö²¢»Ø»·
+        // head æŒ‡é’ˆå‰è¿›å¾ªç¯
         fifo->head++;
         if (fifo->head >= fifo->size)
         {
             fifo->head = 0;
         }
 
-        // ºËĞÄÂß¼­£ºÈç¹û×·ÉÏÁË tail (Òç³ö¸²¸Ç)
+        // å¦‚æœé€»è¾‘ä¸Šæ»¡äº†ï¼ŒåŒæ­¥ tail (è¦†ç›–æ—§æ•°æ®)
         if (fifo->head == fifo->tail)
         {
-            // tail ±»ÆÈÏòÇ°ÍÆÒ»²½£¬¶ªÆú×î¾ÉµÄÊı¾İ
+            // tail ä¹Ÿå‰è¿›ä¸€æ ¼ï¼Œé¿å…å‡ºç°ç©ºæ•°æ®
             fifo->tail++;
             if (fifo->tail >= fifo->size)
             {
                 fifo->tail = 0;
             }
-            fifo->is_full = true; // ±ê¼ÇÂú/Òç³ö
+            fifo->is_full = true; // æ»¡æ ‡è®°/è¦†ç›–
         }
     }
     return len;
 }
 
-// ¶Á³öÊı¾İ (ÅäÌ×º¯Êı£¬ÄãÒ²ĞèÒªÓÃµ½µÄ)
+// è¯»å–æ•°æ® (æ³¨æ„åé¢æˆ‘ä»¬ä¹Ÿè¦ç”¨å¾—åˆ°çš„)
 uint16_t fifo_read(fifo_t *fifo, uint8_t *p_data, uint16_t len)
 {
     uint16_t i;
-    // ÕâÀïÓ¦¸ÃÏÈÅĞ¶ÏÓĞÃ»ÓĞÊı¾İ¿É¶Á£¬¼òµ¥Ğ´Ò»ÏÂÂß¼­
+    // ç®€å•ç²—æš´ï¼šå¦‚æœæ²¡æœ‰æ•°æ®å¯è¯»å°±å†™ä¸€ä¸ªé€»è¾‘
     for(i = 0; i < len; i++)
     {
-        if(fifo->head == fifo->tail) // ¿ÕÁË
+        if(fifo->head == fifo->tail) // ç©º
         {
             break;
         }
@@ -61,5 +61,5 @@ uint16_t fifo_read(fifo_t *fifo, uint8_t *p_data, uint16_t len)
             fifo->tail = 0;
         }
     }
-    return i; // ·µ»ØÊµ¼Ê¶Áµ½µÄ×Ö½ÚÊı
+    return i; // è¿”å›å®é™…è¯»å–å¾—å­—èŠ‚æ•°
 }

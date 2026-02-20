@@ -1412,10 +1412,10 @@ Removing Unused input sections from the image.
     Removing bsp_init.o(.emb_text), (8 bytes).
     Removing bsp_frame.o(.emb_text), (8 bytes).
     Removing bsp_frame.o(.data), (2 bytes).
+    Removing bsp_timer.o(.emb_text), (8 bytes).
     Removing fifo.o(i.fifo_init), (14 bytes).
     Removing fifo.o(i.fifo_read), (58 bytes).
     Removing fifo.o(i.fifo_write), (76 bytes).
-    Removing bsp_timer.o(.emb_text), (8 bytes).
     Removing fadd.o(.text), (178 bytes).
     Removing fmul.o(.text), (122 bytes).
     Removing fdiv.o(.text), (124 bytes).
@@ -1574,7 +1574,6 @@ Image Symbol Table
     ..\bsp\bsp_timer.c                       0x00000000   Number         0  bsp_timer.o ABSOLUTE
     ..\bsp\bsp_tm1650.c                      0x00000000   Number         0  bsp_tm1650.o ABSOLUTE
     ..\bsp\bsp_usart.c                       0x00000000   Number         0  bsp_usart.o ABSOLUTE
-    ..\bsp\fifo.c                            0x00000000   Number         0  fifo.o ABSOLUTE
     ..\firmware\CMSIS\device\startup\startup_n32wb03x.s 0x00000000   Number         0  startup_n32wb03x.o ABSOLUTE
     ..\firmware\CMSIS\device\system_n32wb03x.c 0x00000000   Number         0  system_n32wb03x.o ABSOLUTE
     ..\firmware\n32wb03x_std_periph_driver\src\misc.c 0x00000000   Number         0  misc.o ABSOLUTE
@@ -1613,6 +1612,7 @@ Image Symbol Table
     ..\src\app_profile\app_dis.c             0x00000000   Number         0  app_dis.o ABSOLUTE
     ..\src\app_profile\app_rdtss.c           0x00000000   Number         0  app_rdtss.o ABSOLUTE
     ..\src\main.c                            0x00000000   Number         0  main.o ABSOLUTE
+    ..\src\utils\fifo.c                      0x00000000   Number         0  fifo.o ABSOLUTE
     cdrcmple.s                               0x00000000   Number         0  cdrcmple.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
     init.s                                   0x00000000   Number         0  init.o ABSOLUTE
@@ -3385,7 +3385,7 @@ Memory Map of the image
     0x01000cf4   0x01000cf4   0x00000054   Code   RO         4517    i.RelayInit         bsp_relay.o
     0x01000d48   0x01000d48   0x00000008   Code   RO         4518    i.RelayOff          bsp_relay.o
     0x01000d50   0x01000d50   0x00000008   Code   RO         4519    i.RelayOn           bsp_relay.o
-    0x01000d58   0x01000d58   0x00000010   Code   RO         4679    i.SysTick_Handler   bsp_timer.o
+    0x01000d58   0x01000d58   0x00000010   Code   RO         4652    i.SysTick_Handler   bsp_timer.o
     0x01000d68   0x01000d68   0x00000010   Code   RO           12    i.SystemCoreClockUpdate  system_n32wb03x.o
     0x01000d78   0x01000d78   0x00000034   Code   RO           13    i.SystemGetMacAddr  system_n32wb03x.o
     0x01000dac   0x01000dac   0x00000180   Code   RO           15    i.SystemInit        system_n32wb03x.o
@@ -3560,10 +3560,10 @@ Memory Map of the image
     0x01005950   0x01005950   0x000000f8   Code   RO         2368    i.rwip_slp_isr      rwip_driver.o
     0x01005a48   0x01005a48   0x00000002   Code   RO         3197    i.timer_canceled_handler  ns_timer.o
     0x01005a4a   0x01005a4a   0x00000002   PAD
-    0x01005a4c   0x01005a4c   0x00000060   Code   RO         4680    i.timer_init        bsp_timer.o
+    0x01005a4c   0x01005a4c   0x00000060   Code   RO         4653    i.timer_init        bsp_timer.o
     0x01005aac   0x01005aac   0x00000002   Code   RO         3198    i.timer_modified_handler  ns_timer.o
     0x01005aae   0x01005aae   0x00000002   PAD
-    0x01005ab0   0x01005ab0   0x000000ec   Code   RO         4681    i.timer_run         bsp_timer.o
+    0x01005ab0   0x01005ab0   0x000000ec   Code   RO         4654    i.timer_run         bsp_timer.o
     0x01005b9c   0x01005b9c   0x00000054   Code   RO         4330    i.usart_rx_check_in_irq  bsp_usart.o
     0x01005bf0   0x01005bf0   0x0000005c   Code   RO         4332    i.usart_tx_dma_send  bsp_usart.o
     0x01005c4c   0x01005c4c   0x000001d8   Data   RO           20    .constdata          system_n32wb03x.o
@@ -3611,7 +3611,7 @@ Memory Map of the image
     0x20004738   COMPRESSED   0x00000018   Data   RW         4334    .data               bsp_usart.o
     0x20004750   COMPRESSED   0x0000000a   Data   RW         4617    .data               bsp_frame.o
     0x2000475a   COMPRESSED   0x00000002   PAD
-    0x2000475c   COMPRESSED   0x00000018   Data   RW         4682    .data               bsp_timer.o
+    0x2000475c   COMPRESSED   0x00000018   Data   RW         4655    .data               bsp_timer.o
     0x20004774   COMPRESSED   0x00000004   Data   RW         4722    .data               mc_p.l(rand.o)
     0x20004778   COMPRESSED   0x00000004   Data   RW         5069    .data               mc_p.l(mvars.o)
     0x2000477c   COMPRESSED   0x00000004   Data   RW         5070    .data               mc_p.l(mvars.o)

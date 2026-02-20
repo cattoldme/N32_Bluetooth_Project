@@ -1,0 +1,40 @@
+# Keil MDK-ARM build files
+MDK-ARM/Listings/
+MDK-ARM/Objects/
+MDK-ARM/bin/
+*.uvguix.*
+*.uvoptx
+*.dep
+
+# Build outputs
+*.o
+*.d
+*.crf
+*.axf
+*.bin
+*.hex
+*.elf
+*.map
+*.lst
+*.htm
+*.sct
+*.lnp
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Compressed files
+*.zip
+*.rar
+*.7z
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Output directory
+output/

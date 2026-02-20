@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\rdts.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\rdts.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Jan 14 16:10:27 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Feb 20 22:15:07 2026
 <BR><P>
 <H3>Maximum Stack Usage =        768 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1148,8 +1148,8 @@ Global Symbols
 <P><STRONG><a name="[9f]"></a>TM1650_DisplayInt</STRONG> (Thumb, 96 bytes, Stack size 16 bytes, bsp_tm1650.o(i.TM1650_DisplayInt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = TM1650_DisplayInt &rArr; TM1650_WriteData &rArr; TM1650_WriteByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TM1650_WriteData
+<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TM1650_WriteData
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_init
 </UL>
@@ -1157,8 +1157,8 @@ Global Symbols
 <P><STRONG><a name="[a1]"></a>TM1650_DisplayTime</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, bsp_tm1650.o(i.TM1650_DisplayTime))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = TM1650_DisplayTime &rArr; TM1650_WriteData &rArr; TM1650_WriteByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TM1650_WriteData
+<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TM1650_WriteData
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_run
 </UL>
@@ -2052,10 +2052,10 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = timer_init &rArr; TM1650_Init &rArr; TM1650_SetDisplay &rArr; TM1650_WriteByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TM1650_SetDisplay
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TM1650_Init
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TM1650_DisplayInt
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_init
 </UL>
@@ -2525,8 +2525,8 @@ Local Symbols
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_sec_get_bond_status
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_timer_set
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_timer_clear
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_memcpy1_6 (via Veneer)
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send_basic
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_memcpy1_6 (via Veneer)
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> ns_ble_task.o(.constdata)
